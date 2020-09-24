@@ -214,6 +214,9 @@
           "text": "Do not want a robot?"
         },
         {
+          "text": "Hey how to get in contact"
+        },
+        {
           "text": "Hi can you transfer me"
         },
         {
@@ -1005,7 +1008,7 @@
       },
       "conditions": "#General_Security_Assurance",
       "dialog_node": "node_2_1600948186549",
-      "previous_sibling": "node_7_1600940457226"
+      "previous_sibling": "node_9_1600955383659"
     },
     {
       "type": "standard",
@@ -1055,7 +1058,7 @@
           {
             "values": [
               {
-                "text": "Hello, a very warm welcome. Awesome, you visit the vending-machine chatbot. Just ask me for an access code and I will provide you one."
+                "text": "Hello and a very warm welcome!      Awesome, you visit the vending-machine chatbot. Just ask me for an access code and I will provide you one."
               }
             ],
             "response_type": "text",
@@ -1068,6 +1071,7 @@
     },
     {
       "type": "standard",
+      "title": "I am a Bot",
       "output": {
         "generic": [
           {
@@ -1084,6 +1088,26 @@
       "conditions": "#General_Human_or_Bot",
       "dialog_node": "node_8_1600948115724",
       "previous_sibling": "node_2_1600948186549"
+    },
+    {
+      "type": "standard",
+      "title": "Contact a Agent",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "To get in contact with our Developer Advocates join the meet-up group: https://www.meetup.com/IBM-Developers"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#General_Connect_to_Agent",
+      "dialog_node": "node_9_1600955383659",
+      "previous_sibling": "node_7_1600940457226"
     },
     {
       "type": "response_condition",
