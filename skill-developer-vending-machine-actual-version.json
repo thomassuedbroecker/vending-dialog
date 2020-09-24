@@ -855,13 +855,7 @@
           {
             "values": [
               {
-                "text": "I didn't understand. You can try rephrasing."
-              },
-              {
-                "text": "Can you reword your statement? I'm not understanding."
-              },
-              {
-                "text": "I didn't get your meaning."
+                "text": "Please ask for an access code."
               }
             ],
             "response_type": "text",
@@ -877,16 +871,100 @@
     {
       "type": "event_handler",
       "output": {},
-      "parent": "slot_3_1600869627252",
-      "event_name": "focus",
-      "dialog_node": "handler_5_1600869627261",
-      "previous_sibling": "handler_9_1600869627261"
+      "parent": "slot_6_1600946569358",
+      "context": {
+        "undefined": "$webhook_result_1"
+      },
+      "conditions": "$webhook_result_1",
+      "event_name": "input",
+      "dialog_node": "handler_4_1600946569361"
     },
     {
       "type": "event_handler",
-      "parent": "slot_3_1600869627252",
-      "event_name": "input",
-      "dialog_node": "handler_9_1600869627261"
+      "output": {
+        "text": {
+          "values": [
+            "I have to check that."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_6_1600946569358",
+      "event_name": "focus",
+      "dialog_node": "handler_8_1600946569361",
+      "previous_sibling": "handler_4_1600946569361"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I can provide you an access code. Please ask for an access code."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#General_Agent_Capabilities",
+      "dialog_node": "node_10_1600947664478",
+      "previous_sibling": "node_1_1600947802330"
+    },
+    {
+      "type": "standard",
+      "title": "General_Negative_Feedback",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I am so sorry."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#General_Negative_Feedback",
+      "dialog_node": "node_10_1600948013884",
+      "previous_sibling": "node_8_1600948115724"
+    },
+    {
+      "type": "frame",
+      "title": "Existing Access Code",
+      "output": {},
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "$webhook_result_1",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_1_1600946013761",
+      "previous_sibling": "node_6_1600872595300"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Awesome! I am happy you like it. Check out https://developer.ibm.com."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#General_Positive_Feedback",
+      "dialog_node": "node_1_1600947802330",
+      "previous_sibling": "node_10_1600948013884"
     },
     {
       "type": "frame",
@@ -908,7 +986,26 @@
       },
       "conditions": "#givemeacode",
       "dialog_node": "node_2_1600869614865",
-      "previous_sibling": "node_6_1600872595300"
+      "previous_sibling": "node_1_1600946013761"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I am an example implementation. Check out https://developer.ibm.com/ and implement a better version of myself."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#General_Security_Assurance",
+      "dialog_node": "node_2_1600948186549",
+      "previous_sibling": "node_7_1600940457226"
     },
     {
       "type": "standard",
@@ -918,7 +1015,7 @@
           {
             "values": [
               {
-                "text": "Hello here is your vending machine code provider."
+                "text": "Hello here is your vending-machine chatbot."
               }
             ],
             "response_type": "text",
@@ -948,7 +1045,7 @@
       },
       "conditions": "#General_Ending",
       "dialog_node": "node_6_1600872680987",
-      "previous_sibling": "node_7_1600940457226"
+      "previous_sibling": "node_10_1600947664478"
     },
     {
       "type": "standard",
@@ -958,7 +1055,7 @@
           {
             "values": [
               {
-                "text": "Hello, a very warm welcome. It's that awesome you visit the vending-machine chatbot. Just ask me for an assess code and I will you provide one."
+                "text": "Hello, a very warm welcome. Awesome you visit the vending-machine chatbot. Just ask me for an access code and I will you provide one."
               }
             ],
             "response_type": "text",
@@ -970,11 +1067,58 @@
       "dialog_node": "node_7_1600940457226"
     },
     {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I am a bot and I can provide access codes."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#General_Human_or_Bot",
+      "dialog_node": "node_8_1600948115724",
+      "previous_sibling": "node_2_1600948186549"
+    },
+    {
       "type": "response_condition",
+      "output": {
+        "text": {
+          "values": [
+            "It seems I can currently not get an access code for you."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
       "parent": "node_2_1600869614865",
       "conditions": "anything_else",
       "dialog_node": "response_1_1600869628287",
       "previous_sibling": "response_6_1600869626710"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "You already requested an access code. Here is your existing access code $webhook_result_1.message"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1600946013761",
+      "conditions": "$webhook_result_1",
+      "dialog_node": "response_5_1600946013764",
+      "previous_sibling": "slot_6_1600946569358"
     },
     {
       "type": "response_condition",
@@ -993,13 +1137,12 @@
       },
       "parent": "node_2_1600869614865",
       "conditions": "$webhook_result_1",
-      "dialog_node": "response_6_1600869626710",
-      "previous_sibling": "slot_3_1600869627252"
+      "dialog_node": "response_6_1600869626710"
     },
     {
       "type": "slot",
-      "parent": "node_2_1600869614865",
-      "dialog_node": "slot_3_1600869627252"
+      "parent": "node_1_1600946013761",
+      "dialog_node": "slot_6_1600946569358"
     }
   ],
   "counterexamples": [],
