@@ -947,7 +947,27 @@
         ]
       },
       "conditions": "#General_Ending",
-      "dialog_node": "node_6_1600872680987"
+      "dialog_node": "node_6_1600872680987",
+      "previous_sibling": "node_7_1600940457226"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello, a very warm welcome. It's that awesome you visit the vending-machine chatbot. Just ask me for an assess code and I will you provide one."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "node_7_1600940457226"
     },
     {
       "type": "response_condition",
