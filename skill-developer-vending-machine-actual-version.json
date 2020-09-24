@@ -1055,7 +1055,7 @@
           {
             "values": [
               {
-                "text": "Hello, a very warm welcome. Awesome you visit the vending-machine chatbot. Just ask me for an access code and I will you provide one."
+                "text": "Hello, a very warm welcome. Awesome, you visit the vending-machine chatbot. Just ask me for an access code and I will provide you one."
               }
             ],
             "response_type": "text",
