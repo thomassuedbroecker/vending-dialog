@@ -861,7 +861,7 @@
           {
             "values": [
               {
-                "text": "Please ask for an access code. If you just started the 'Watson Assistant' it could be, that my skill training by 'IBM Watson' is currently going on. Please try it again later."
+                "text": "Please ask for an access code. If you just started Watson Assistant, it could be that IBM Watson is skill training. Please try it again later."
               }
             ],
             "response_type": "text",
